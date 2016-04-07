@@ -271,6 +271,8 @@ namespace SonarRunner.Shim
             // There are some properties we want to override regardless of what the user sets
             AddOrSetProperty(VSBootstrapperPropertyKey, "false", properties, logger);
 
+            AddOrSetProperty("sonar.cfamily.build-wrapper-output", "C:\\tmp\\compilation-database", properties, logger);
+
             return properties;
         }
 

@@ -110,6 +110,7 @@
   <UsingTask TaskName="WriteProjectInfoFile" AssemblyFile="$([MSBUILD]::Unescape($(SonarQubeBuildTasksAssemblyFile)))" />
   <UsingTask TaskName="IsTestFileByName" AssemblyFile="$([MSBUILD]::Unescape($(SonarQubeBuildTasksAssemblyFile)))" />
   <UsingTask TaskName="GetAnalyzerSettings" AssemblyFile="$([MSBUILD]::Unescape($(SonarQubeBuildTasksAssemblyFile)))" />
+  <UsingTask TaskName="AttachBuildWrapper" AssemblyFile="$([MSBUILD]::Unescape($(SonarQubeBuildTasksAssemblyFile)))" />
 
   <!-- **************************************************************************** -->
   <!-- **************************************************************************** -->
@@ -120,6 +121,10 @@
   <Target Name="SkippingSonarQubeAnalysis" BeforeTargets="Build"
           Condition=" $(SonarQubeTempPath) == '' ">
     <Message Importance="high" Text="Skipping dumping compile outputs because SonarQubeTempPath has not been specified" />
+  </Target>
+
+  <Target Name="AttachBuildWrapper" BeforeTargets="ClCompile">
+    <AttachBuildWrapper />
   </Target>
 
   <!-- **************************************************************************** -->

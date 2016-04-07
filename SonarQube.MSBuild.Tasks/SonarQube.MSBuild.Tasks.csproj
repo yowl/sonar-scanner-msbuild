@@ -47,6 +47,7 @@
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
     <Compile Include="BuildTaskConstants.cs" />
+    <Compile Include="AttachBuildWrapper.cs" />
     <Compile Include="GetAnalyzerSettings.cs" />
     <Compile Include="IsTestFileByName.cs" />
     <Compile Include="MergeRuleSets.cs" />
