@@ -195,7 +195,8 @@ namespace SonarRunner.Shim
 
         private static bool HasDuplicateGuid(ProjectInfo projectInfo, IEnumerable<ProjectInfo> projects)
         {
-            return projects.Count(p => !p.IsExcluded && p.ProjectGuid == projectInfo.ProjectGuid) > 1;
+//            return projects.Count(p => !p.IsExcluded && p.ProjectGuid == projectInfo.ProjectGuid) > 1;
+            return projects.TakeWhile(p => p != projectInfo).Count(p => !p.IsExcluded && p.ProjectGuid == projectInfo.ProjectGuid) > 0;
         }
 
         /// <summary>
